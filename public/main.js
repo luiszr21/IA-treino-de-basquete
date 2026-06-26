@@ -3,7 +3,11 @@ const elInput = document.getElementById("chat-input");
 const btnEnviar = document.getElementById("btn-enviar");
 
 const historico = [];
+const historicoLimite = 10
 
+function historicoDentroDoLimite() {
+  return historico.slice(-historicoLimite);
+}
 function horaAtual() {
   return new Date().toLocaleTimeString("pt-BR", {
     hour: "2-digit",
@@ -138,9 +142,7 @@ async function enviarMensagem() {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
-        historico,
-      }),
+      body: JSON.stringify({historico: historicoDentroDoLimite()}),
     });
 
     const data = await response.json();
@@ -163,7 +165,6 @@ async function enviarMensagem() {
       adicionarMensagem(conteudo, "assistente");
     }
 
-    // Salva a resposta da IA para manter o contexto da conversa
     historico.push({
       role: "assistant",
       content: JSON.stringify(data.resposta),
