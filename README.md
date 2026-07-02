@@ -31,13 +31,13 @@ git clone <URL_DO_REPOSITORIO>
 Entre na pasta:
 
 ```bash
-cd SwishLab
+cd  IA-treino-de-basquete
 ```
 
 Instale as dependências:
 
 ```bash
-npm install
+npm install 
 ```
 
 ---
