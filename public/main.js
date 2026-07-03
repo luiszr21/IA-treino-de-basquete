@@ -85,23 +85,41 @@ function bloquearInput(bloquear) {
 
 function renderizarTreino(dados) {
   const exercicios = dados.exercicios
-    .map(
-      (ex, i) => `
-    <div class="exercicio-card">
-      <div class="exercicio-numero">Exercício ${String(i + 1).padStart(2, "0")}</div>
-      <div class="exercicio-nome">${ex.nome}</div>
-      <div class="exercicio-volume">${ex.volume}</div>
-      <div class="exercicio-dica">${ex.dica}</div>
-    </div>
-  `
-    )
+    .map((ex, i) => {
+      const erros = ex.erros_comuns.map((erro) => `<li>${erro}</li>`).join("");
+      return (
+        '<div class="exercicio-card">' +
+        `<div class="exercicio-numero">Exercício ${String(i + 1).padStart(2, "0")}</div>` +
+        `<div class="exercicio-nome">${ex.nome}</div>` +
+        '<div class="exercicio-secao">' +
+        '<span class="exercicio-label">🎯 Objetivo</span>' +
+        `<p class="exercicio-texto">${ex.objetivo}</p>` +
+        "</div>" +
+        '<div class="exercicio-secao">' +
+        '<span class="exercicio-label">📊 Volume</span>' +
+        `<p class="exercicio-texto">${ex.volume}</p>` +
+        "</div>" +
+        '<div class="exercicio-secao">' +
+        '<span class="exercicio-label">📋 Como executar</span>' +
+        `<p class="exercicio-texto exercicio-execucao">${ex.execucao}</p>` +
+        "</div>" +
+        '<div class="exercicio-secao">' +
+        '<span class="exercicio-label">⚠️ Erros comuns</span>' +
+        `<ul class="exercicio-erros">${erros}</ul>` +
+        "</div>" +
+        `<div class="exercicio-dica">💡 ${ex.dica}</div>` +
+        "</div>"
+      );
+    })
     .join("");
 
-  return `
-    <div class="treino-intro">${dados.mensagem}</div>
-    <div class="treino-duracao">⏱ ${dados.duracao_minutos} min</div>
-    ${exercicios}
-  `;
+  return (
+    '<div class="treino-render">' +
+    `<div class="treino-intro">${dados.mensagem}</div>` +
+    `<div class="treino-duracao">⏱ ${dados.duracao_minutos} min</div>` +
+    exercicios +
+    "</div>"
+  );
 }
 
 function renderizarResposta(dados) {

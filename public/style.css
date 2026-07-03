@@ -247,6 +247,10 @@ body {
 
 /* Treino */
 
+.treino-render {
+  white-space: normal;
+}
+
 .treino-intro {
   font-size: 0.875rem;
   color: rgba(240, 237, 232, 0.75);
@@ -315,11 +319,71 @@ body {
   margin-bottom: 0.25rem;
 }
 
+.exercicio-secao {
+  margin-top: 0.625rem;
+  padding-top: 0.625rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.exercicio-secao:first-of-type {
+  border-top: none;
+  padding-top: 0;
+}
+
+.exercicio-label {
+  display: block;
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(214, 95, 20, 0.85);
+  margin-bottom: 0.25rem;
+}
+
+.exercicio-texto {
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  color: rgba(240, 237, 232, 0.75);
+}
+
+.exercicio-execucao {
+  color: rgba(240, 237, 232, 0.65);
+}
+
+.exercicio-erros {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.exercicio-erros li {
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: rgba(240, 237, 232, 0.6);
+  padding-left: 0.875rem;
+  position: relative;
+}
+
+.exercicio-erros li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.5rem;
+  width: 0.25rem;
+  height: 0.25rem;
+  border-radius: 50%;
+  background: rgba(214, 95, 20, 0.6);
+}
+
 .exercicio-dica {
   font-size: 0.75rem;
   font-style: italic;
   color: rgba(240, 237, 232, 0.5);
   line-height: 1.5;
+  margin-top: 0.625rem;
+  padding-top: 0.625rem;
+  border-top: 1px solid rgba(214, 95, 20, 0.1);
 }
 
 /* Utilitários */
