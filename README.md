@@ -130,12 +130,3 @@ IA-TREINO-DE-BASQUETE/
 └── Server.js
 ```
 
----
-
-# 📦 Scripts
-
-Iniciar o servidor:
-
-```bash
-npm start
-```
